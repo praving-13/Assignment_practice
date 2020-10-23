@@ -1,0 +1,9 @@
+cinorm <- function(p = 0.95, mean = 0, sd = 1){
+  q <- c((1 - p)/2, p + (1 - p)/2)
+  z <- qnorm(q)
+  x <- mean + sd*z
+  x
+}
+
+cinorm(0.99, 100, 202)
+#[1] -420.3175  620.3175
