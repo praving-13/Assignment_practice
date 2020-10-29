@@ -1,0 +1,11 @@
+calculate probability
+
+# probability from Z=0 to lower bound
+double_prob = erf( (x1-mu) / (sigma*sqrt(2)) )
+p_lower = double_prob/2
+print(f'\n Lower Bound: {round(p_lower,4)}')
+
+# probability from Z=0 to upper bound
+double_prob = erf( (x2-mu) / (sigma*sqrt(2)) )
+p_upper = double_prob/2
+print(f'\n Upper Bound: {round(p_upper,4)}')
