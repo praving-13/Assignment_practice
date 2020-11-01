@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt 
+import pandas as pd  
+
+from sklearn.datasets import load_boston
+boston_dataset = load_boston()
+
+boston = pd.DataFrame(boston_dataset.data, columns=boston_dataset.feature_names)
+
+boston['MEDV'] = boston_dataset.target
+names = boston_dataset.feature_names
+
+print(boston.head())
+print(names)
+      CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
+0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0   
+1  0.02731   0.0   7.07   0.0  0.469  6.421  78.9  4.9671  2.0  242.0   
+2  0.02729   0.0   7.07   0.0  0.469  7.185  61.1  4.9671  2.0  242.0   
+3  0.03237   0.0   2.18   0.0  0.458  6.998  45.8  6.0622  3.0  222.0   
+4  0.06905   0.0   2.18   0.0  0.458  7.147  54.2  6.0622  3.0  222.0   
+
+   PTRATIO       B  LSTAT  MEDV  
+0     15.3  396.90   4.98  24.0  
+1     17.8  396.90   9.14  21.6  
+2     17.8  392.83   4.03  34.7  
+3     18.7  394.63   2.94  33.4  
+4     18.7  396.90   5.33  36.2  
+['CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO'
+ 'B' 'LSTAT']
+ 
+ 
+ 
+ 
+The above table shows the first 5 rows from the dataset. Let us now see how many columns and observation we have in the dataset.
+print(boston.shape)
+(506, 14)
+
+
+We can see that the dataset has 14 columns and 506 observations. Among the 14 columns, the first 13 columns are independent variables or features and last column is the dependent variable or target variable or output variable.
+
+
+
+
+We will be using sklearn.tree.DecisionTreeRegressor from scikit-learn for this model.
