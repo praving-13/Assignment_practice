@@ -1,0 +1,37 @@
+%matplotlib inline
+
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+import math
+np.random.seed(6)
+
+population_ages1 = stats.poisson.rvs(loc=18, mu=35, size=150000)
+population_ages2 = stats.poisson.rvs(loc=18, mu=10, size=100000)
+population_ages = np.concatenate((population_ages1, population_ages2))
+
+minnesota_ages1 = stats.poisson.rvs(loc=18, mu=30, size=30)
+minnesota_ages2 = stats.poisson.rvs(loc=18, mu=10, size=20)
+minnesota_ages = np.concatenate((minnesota_ages1, minnesota_ages2))
+
+print( population_ages.mean() )
+print( minnesota_ages.mean() )
+43.000112
+39.26
+
+stats.ttest_1samp(a= minnesota_ages,               # Sample data
+                 popmean= population_ages.mean())  # Pop mean
+                 stats.t.ppf(q=0.025,  # Quantile to check
+            df=49)  # Degrees of freedom
+						np.random.seed(12)
+wisconsin_ages1 = stats.poisson.rvs(loc=18, mu=33, size=30)
+wisconsin_ages2 = stats.poisson.rvs(loc=18, mu=13, size=20)
+wisconsin_ages = np.concatenate((wisconsin_ages1, wisconsin_ages2))
+
+print( wisconsin_ages.mean() )
+42.8
+stats.ttest_ind(a= minnesota_ages,
+                b= wisconsin_ages,
+                equal_var=False)    # Assume samples have equal variance?
+Ttest_indResult(statistic=-1.7083870793286842, pvalue=0.09073104343957748)
