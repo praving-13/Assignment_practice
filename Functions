@@ -1,0 +1,22 @@
+Manipulating data
+data is a pandas.DataFrame, that resembles R’s dataframe:
+
+>>>
+data.shape    # 40 rows and 8 columns
+
+
+data.columns  # It has columns   
+
+
+print(data['Gender'])  # Columns can be addressed by name   
+
+
+
+
+
+
+
+# Simpler selector
+data[data['Gender'] == 'Female']['VIQ'].mean()
+
+Note For a quick view on a large dataframe, use its describe method: pandas.DataFrame.describe().
